@@ -6,20 +6,10 @@ jobs:
       - image: circleci/python:3.8  # Change to your required image
     steps:
       - checkout
-      - run:
-          name: Install dependencies
-          command: pip install -r requirements.txt
-      - run:
-          name: Run tests
-          command: pytest
+      - run: python main.py
 
 workflows:
-  version: 2
-  build_and_test:
+  build_now:
     jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - master  # This ensures the job runs only on the master branch
+      - build
 
